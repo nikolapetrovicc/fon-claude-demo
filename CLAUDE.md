@@ -27,6 +27,14 @@ Ciljna publika: backend developeri i DevOps inženjeri u startup-ima.
 - Semantički HTML
 - Bez komentara osim za netrivijalnu logiku
 
+## Jezik
+- Sav UI copy (heading-zi, paragrafi, dugmad, labele, alt tekst) MORA biti na engleskom
+- Komentari u kodu i poruke meni mogu biti na srpskom
+
+## Next.js 16
+- Ovo nije Next.js iz trening podataka — ima breaking changes
+- Ako nisi siguran za neki API, proveri `node_modules/next/dist/docs/` pre nego što pišeš kod
+
 ## Dizajn sistem
 - Paleta: neutral-50 do neutral-900
 - Accent: neutral-900 na svetloj pozadini
@@ -42,8 +50,15 @@ Ciljna publika: backend developeri i DevOps inženjeri u startup-ima.
 
 ## Workflow
 - Za veće izmene: prvo predloži plan, čekaj potvrdu
-- Posle svake izmene pokreni npm run build
 - Ne diraj fajlove van zadatka
+- Nove rute idu kao `app/<naziv>/page.tsx` i koriste isti `<Header />` / `<Footer />` wrapper kao `app/page.tsx`
+- Ako izmena utiče na navigaciju, proveri da svi linkovi u Header-u vode na postojeća odredišta (ruta ili anchor koji zaista postoji)
+
+## Posle svake izmene (obavezno, ovim redom)
+1. `npm run lint` — mora proći bez grešaka
+2. `npm run build` — mora proći bez grešaka
+3. Kratko (2–3 rečenice) rezimiraj šta je promenjeno i koje fajlove si dirao
+4. Ako lint ili build padne, popravi uzrok pre nego što javiš da je gotovo — ne preskači korake
 
 ## Šta NE diraj
 - `app/layout.tsx`
